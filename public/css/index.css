@@ -1,0 +1,94 @@
+a{
+    text-decoration: none;
+    color: black;
+}
+
+p{
+    font-family: 'Do Hyeon', sans-serif;
+}
+
+ul li{
+    list-style: none;
+}
+
+body>div{
+    position: relative;
+    max-width: 1200px;
+    min-width: 1000px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+div.header{
+    border-bottom: 1.5px solid #dbdbdb;
+    max-height: 120px;
+}
+
+p#p_GGMap{
+    display: inline-block;
+    font-size: 40pt;
+    font-weight: bold;
+    margin-right: 20px;
+    line-height: 5px;
+}
+
+div#img_logo{
+    display: inline-block;
+}
+
+div#img_logo>img{
+    margin-top: 0px;
+    width: 60px;
+    border-radius: 60px;
+    position: absolute;
+    top: 20px;
+}
+
+div#btn_sign{
+    margin-top: 50px;
+    display: block;
+    position: relative;
+    float: right;
+}
+
+a#btn_signin, a#btn_signup{
+    background-color: #8162bf;
+    border-radius: 10px;
+    padding: 12px;
+    margin-right: 10px;
+    font-size: 12pt;
+    font-family: 'Do Hyeon', sans-serif;
+    color: white;
+}
+
+div.container{
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+div.container>div{
+    border: 3px solid #b0a1ce;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+}
+
+div.container>div>p{
+    font-size: 15pt;
+}
+
+div.btn_area>button{
+    margin-top: 20px;
+    border: none;
+    outline: none;
+    background-color: #8162bf;
+    border-radius: 10px;
+    padding: 12px;
+    margin-right: 10px;
+    font-size: 12pt;
+    font-family: 'Do Hyeon', sans-serif;
+    color: white;
+}
