@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/css/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+    <title>깜깜맵 서버</title>
+</head>
+<body>
+    <div>
+        <div class="header">
+            <a href="./index.html">
+            <div id="img_logo">
+                <p id="p_GGMap">깜깜맵</p>
+                <img src="../public/images/ggm18.png" alt="">
+            </div>
+            </a>
+        </div>
+        <div class="container">
+            <form action="/users/create" method="post">
+                <div class="div_id">
+                    <input placeholder="아이디" name="user_id" type="text" required>
+                </div>
+                <div class="div_password">
+                    <input placeholder="비밀번호" name="password" type="password" required>
+                </div>
+                <div class="btn_area">
+                    <button class="btn_login" type="submit">로그인</button>
+                    <button type="button" onclick="location.href='/users/signup'" class="btn_signup">회원가입</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
