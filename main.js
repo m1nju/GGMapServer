@@ -51,6 +51,7 @@ app.get("/", homeController.index);
 app.get("/users/fail", usersController.loginFail);
 app.get("/users/login", usersController.login);
 app.post("/users/login", usersController.authenticate, usersController.redirectView);
+app.get("/users/logout", usersController.logout, usersController.redirectView);
 
 app.get("/users/signup", usersController.signup);
 app.get("/users/create", usersController.signupSuccess);
