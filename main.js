@@ -7,9 +7,12 @@ const port = 80,
     db = require("./models/index"),
     flash = require("connect-flash"),
     usersController = require("./controllers/usersController"),
-    errorController = require("./controllers/errorController");
+    errorController = require("./controllers/errorController"),
+    homeController = require("./controllers/homeController");
 
 app.set("port", process.env.PORT || 80);
+app.set("view engine", "ejs");
+
 app.use("/public", express.static("public"));
 app.use(cookieParser("secret"));
 app.use(session({
@@ -44,12 +47,12 @@ app.use((req, res, next) => {
   });
 
 
-app.get("/", (req, res)=>{
-    res.sendFile(__dirname + "/views/index.html");
-});
+app.get("/", homeController.index);
 app.get("/users/fail", usersController.loginFail);
 app.get("/users/login", usersController.login);
 app.post("/users/login", usersController.authenticate, usersController.redirectView);
+app.get("/users/logout", usersController.logout, usersController.redirectView);
+
 app.get("/users/signup", usersController.signup);
 app.get("/users/create", usersController.signupSuccess);
 app.post("/users/create", usersController.create, usersController.redirectView);

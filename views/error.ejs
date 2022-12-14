@@ -16,10 +16,21 @@
                     <p id="p_GGMap">깜깜맵</p>
                     <img src="../public/images/ggm18.png" alt="">
                 </div>
-                <div id="btn_sign">
-                    <a href="/login" id="btn_signin">로그인</a>
-                    <a href="/signup" id="btn_signup">회원가입</a>
-                </div>
+                <% if(loggedIn) { %>
+                    <div class="my">
+                        <p class="p_my">
+                            <%= currentUser.nickname %>님 안녕하세요!
+                        </p>
+                        <div id="btn_my">
+                            <a href="/users/logout" id="btn_logout">로그아웃</a>
+                        </div>
+                    </div>
+                <%} else { %>
+                    <div id="btn_sign">
+                        <a href="/users/login" id="btn_signin">로그인</a>
+                        <a href="/users/signup" id="btn_signup">회원가입</a>
+                    </div>
+                <% } %>
             </a>
         </div>
         <div class="container">
