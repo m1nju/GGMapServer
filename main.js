@@ -1,4 +1,4 @@
-const port = 3000,
+const port = 80,
     express = require("express"),
     app = express(),
     errorController = require("./controllers/errorController");
@@ -17,8 +17,15 @@ app.use(
 app.get("/", (req, res)=>{
     res.sendFile(__dirname + "/views/index.html");
 });
-    
 
+app.get("/login", (req, res)=>{
+    res.sendFile(__dirname + "/views/signin.html");
+});
+
+app.get("/signup", (req, res)=>{
+    res.sendFile(__dirname + "/views/signup.html");
+});
+    
 
 app.listen(app.get("port"), () => {
     console.log(`Server running at http://localhost:${app.get("port")}`);
