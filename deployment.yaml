@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello
+  labels:
+    app: hello
+spec:
+  replicas: 3
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: ggmap
+  template:
+    metadata:
+      labels:
+        app: ggmap
+        tier: ggmap
+    spec:
+      containers:
+      - name: ggmap
+        image: sarah1153/ggmap:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3306
+          name: ggmap
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ggmap
+  labels:
+    app: ggmap
+spec:
+  ports:
+  - port: 80
+    targetPort: 3306
+  selector:
+    app: ggmap
+    tier: ggmap
+  type: LoadBalancer
