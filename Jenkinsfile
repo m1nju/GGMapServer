@@ -30,9 +30,9 @@ pipeline {
             }
         }        
         stage('Deploy to GKE') {
-			when {
+			/*when {
 				branch 'main'
-			}
+			}*/
             steps{
                 sh "sed -i 's/ggmap:latest/ggmap:${env.BUILD_ID}/g' deployment.yaml"
                 step([$class: 'KubernetesEngineBuilder', projectId: env.PROJECT_ID, clusterName: env.CLUSTER_NAME, location: env.LOCATION, manifestPattern: 'deployment.yaml', credentialsId: env.CREDENTIALS_ID, verifyDeployments: true])
