@@ -1,9 +1,10 @@
-const httpStatus = require("http-status-codes");
+const httpStatus = require("http-status-codes"),
+    path = require("path");
 
 exports.pageNotFoundError = (req, res) => {
   let errorCode = httpStatus.NOT_FOUND;
   res.status(errorCode);
-  res.render("error");
+  res.sendFile(path.join(__dirname, "../", "/views", "/error.html"));
 };
 
 
