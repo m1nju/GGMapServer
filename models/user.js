@@ -48,7 +48,6 @@ module.exports = (sequelize, Sequelize) => {
             allowNull: false
         },
         nickname: {
-
             type: Sequelize.STRING,
             allowNull: false
         },
@@ -58,11 +57,14 @@ module.exports = (sequelize, Sequelize) => {
         },
         birthdate: {
             type: Sequelize.DATEONLY,
-            allowNull: false,
+            allowNull: false
         },
         gender: {
             type: Sequelize.STRING(1),
             allowNull: false
+        },
+        mysalt: {
+            type: Sequelize.STRING
         }
     },
     {

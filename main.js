@@ -47,15 +47,9 @@ app.use((req, res, next) => {
 app.get("/", (req, res)=>{
     res.sendFile(__dirname + "/views/index.html");
 });
-
-app.get("/login", (req, res)=>{
-    res.sendFile(__dirname + "/views/signin.html");
-});
-
-app.get("/signup", (req, res)=>{
-    res.sendFile(__dirname + "/views/signup.html");
-});
-
+app.get("/users/fail", usersController.loginFail);
+app.get("/users/login", usersController.login);
+app.post("/users/login", usersController.authenticate, usersController.redirectView);
 app.get("/users/signup", usersController.signup);
 app.get("/users/create", usersController.signupSuccess);
 app.post("/users/create", usersController.create, usersController.redirectView);
