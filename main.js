@@ -26,6 +26,8 @@ app.get("/signup", (req, res)=>{
     res.sendFile(__dirname + "/views/signup.html");
 });
     
+app.use(errorController.pageNotFoundError);
+app.use(errorController.internalServerError);
 
 app.listen(app.get("port"), () => {
     console.log(`Server running at http://localhost:${app.get("port")}`);
