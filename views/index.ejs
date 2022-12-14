@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/css/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+    <title>깜깜맵 서버</title>
+</head>
+<body>
+    <div>
+        <div class="header">
+            <a href="/">
+                <div id="img_logo">
+                    <p id="p_GGMap">깜깜맵</p>
+                    <img src="../public/images/ggm18.png" alt="">
+                </div>
+                <% if(loggedIn) { %>
+                    <div class="my">
+                        <p class="p_my">
+                            <%= currentUser.nickname %>님 안녕하세요!
+                        </p>
+                        <div id="btn_my">
+                            <a href="/users/logout" id="btn_logout">로그아웃</a>
+                        </div>
+                    </div>
+                <%} else { %>
+                    <div id="btn_sign">
+                        <a href="/users/login" id="btn_signin">로그인</a>
+                        <a href="/users/signup" id="btn_signup">회원가입</a>
+                    </div>
+                <% } %>
+            </a>
+        </div>
+        <div class="container">
+            <div>
+                <p>아이디</p>
+                <p class="value">
+                    <% if(loggedIn) { %>
+                        <%= currentUser.id %>
+                    <%} %>
+                </p>
+            </div>
+            <div>
+                <p>이름</p>
+                <p class="value">
+                    <% if(loggedIn) { %>
+                        <%= currentUser.name %>
+                    <%} %>
+                </p>
+            </div>
+            <div>
+                <p>닉네임</p>
+                <p class="value">
+                    <% if(loggedIn) { %>
+                        <%= currentUser.nickname %>
+                    <%} %>
+                </p>
+            </div>
+            <div>
+                <p>이메일</p>
+                <p class="value">
+                    <% if(loggedIn) { %>
+                        <%= currentUser.email %>
+                    <%} %>
+                </p>
+            </div>
+            <div>
+                <p>성별</p>
+                <p class="value">
+                    <% if(loggedIn) { %>
+                        <%= currentUser.gender %>
+                    <%} %>
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
