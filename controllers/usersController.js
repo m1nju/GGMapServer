@@ -63,20 +63,27 @@ module.exports = {
     },
 
     login: (req, res) => {
-        res.sendFile(path.join(__dirname, "../", "/views", "/signin.html"));
+        res.render("signin");
     }, 
 
     loginFail: (req, res) => {
-        res.sendFile(path.join(__dirname, "../", "/views", "/signin_fail.html"));
+        res.render("signin_fail");
     }, 
 
     signup: (req, res) => {
-        res.sendFile(path.join(__dirname, "../", "/views", "/signup.html"));
+        res.render("signup");
     },
     
     signupSuccess: (req, res)=>{
-        res.sendFile(path.join(__dirname, "../", "/views", "/index.html"));
-    }
+        res.render("index");
+    },
+
+    logout: (req, res, next)=>{
+        req.logout((err)=>{
+            res.locals.redirect="/"
+            next();
+        })
+    },
 
 };
 
