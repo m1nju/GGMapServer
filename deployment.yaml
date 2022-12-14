@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hello
+  name: ggmap
   labels:
-    app: hello
+    app: ggmap
 spec:
   replicas: 3
   strategy:
