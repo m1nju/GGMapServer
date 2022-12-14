@@ -125,6 +125,17 @@ input{
     font-size: 12px;
 }
 
+select{
+    border: 1px solid rgb(218, 218, 218);
+    border-radius: 10px;
+    outline: none;
+    width: 10%;
+    padding:5px;
+    padding-left: 10px;
+    text-align: left center;
+    font-size: 12px;
+}
+
 h3.red{
     color: rgb(0, 122, 236);
 }
