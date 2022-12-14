@@ -17,6 +17,13 @@ const db = require("../models/index"),
     };
 
 module.exports = {
+    authenticate: passport.authenticate("local", {
+        successRedirect: "/",
+        failureRedirect: "/users/fail",
+        failureFlash: "Failed to login.",
+        successFlash:"Logged in!"
+    }),
+
     create: async(req,res, next) => {
         if(req.skip) next();
         let userParams = getUserParams(req.body);
@@ -24,25 +31,43 @@ module.exports = {
         try { 
             let user = new User(userParams);
             if(await User.findOne({ where: {nickname:userParams.nickname}})) {
+                //req.flash("error", "중복 닉네임입니다");
                 res.locals.redirect="/users/signup";
             }
 
             User.register(user, req.body.password, (error, user)=>{
                 if(user){
+                    //req.flash("success", `반가워요 ${user.nickname}님!`);
                     res.locals.redirect = "/users/create";
                     res.locals.user = user;
                     next();
                 }else{
                     res.locals.redirect = "/users/signup";
                     console.log(`Error from signup : ${error.message}`);
+                    //req.flash("error", "중복 아이디입니다");
                     next(error);
                 }
             });
         } catch (error) {
             console.log(`Error from signup ~ : ${error.message}`);
             res.locals.redirect="/users/signup";
+            req.flash("error", "Failed to signup");
             next(error);
         };
+    }, 
+
+    redirectView: (req, res, next) => {
+        let redirectPath = res.locals.redirect;
+        if(redirectPath!= undefined) res.redirect(redirectPath);
+        else next();
+    },
+
+    login: (req, res) => {
+        res.sendFile(path.join(__dirname, "../", "/views", "/signin.html"));
+    }, 
+
+    loginFail: (req, res) => {
+        res.sendFile(path.join(__dirname, "../", "/views", "/signin_fail.html"));
     }, 
 
     signup: (req, res) => {
