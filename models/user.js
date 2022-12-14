@@ -7,7 +7,7 @@ module.exports = (sequelize, Sequelize) => {
             let user = await User.findByPk(id);
             if (user) {
                 user = await User.update(params, {
-                where: { user_id: id },
+                where: { id: id },
                 });
             }
             return user;
@@ -20,7 +20,7 @@ module.exports = (sequelize, Sequelize) => {
             let user = await User.findByPk(id);
             if (user) {
                 user = await User.destroy({
-                where: { user_id: id },
+                where: { id: id },
                 });
             }
             return user;
@@ -56,6 +56,10 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.STRING,
             allowNull: false
         },
+        birthdate: {
+            type: Sequelize.DATEONLY,
+            allowNull: false,
+        },
         gender: {
             type: Sequelize.STRING(1),
             allowNull: false
@@ -70,11 +74,10 @@ module.exports = (sequelize, Sequelize) => {
     );
   
     passportLocalSequelize.attachToUser(User, {
-      usernameField: "user_id",
-      hashField: "password",
-      saltField: "mysalt"
+        usernameField: "id",
+        hashField: "password",
+        saltField: "mysalt"
     });
 
     return User;
-    
 };
