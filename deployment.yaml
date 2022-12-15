@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: ggmap
-        image: sarah1153/ggmap
+        image: sarah1153/ggmap:latest
         
         
