@@ -21,7 +21,6 @@ spec:
       - name: ggmap
         image: sarah1153/ggmap:latest
         imagePullPolicy: Always
-        restartPolicy: Never
         ports:
         - containerPort: 5000
           name: ggmap
