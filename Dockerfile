@@ -17,12 +17,13 @@ COPY main.js /app/
 
 ENV NODE_ENV="production"
 ENV DB_HOST="34.64.226.59"
+ENV DB_HOSTNAME="mysql"
 ENV DB_USER="ggmap"
 ENV DB_PW="ggmap"
 ENV DB_NAME="ggmap_db"
 ENV COOKIE_SECRET="ggmap"
 
-ENV PORT 5000
+ENV PORT 3306
 
 
 EXPOSE 5000
