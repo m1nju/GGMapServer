@@ -23,7 +23,7 @@ ENV DB_NAME="ggmap_db"
 ENV COOKIE_SECRET="ggmap"
 
 
-EXPOSE $DB_PORT
+EXPOSE 3306
 
 # Start the application
 CMD ["npm", "start"]
