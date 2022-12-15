@@ -30,7 +30,7 @@ spec:
 #   - port: 80
 #     targetPort: 5000
   selector:
-    app: hello
-    tier: hello
+    app: ggmap
+    tier: ggmap
   type: LoadBalancer        
         
