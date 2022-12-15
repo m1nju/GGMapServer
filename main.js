@@ -57,6 +57,5 @@ app.post("/users/create", usersController.create, usersController.redirectView);
 app.use(errorController.pageNotFoundError);
 app.use(errorController.internalServerError);
 
-app.listen(app.get("port"), () => {
-    console.log(`Server running at http://localhost:${app.get("port")}`);
-});
+app.listen(5000);
+console.log('Running on http://localhost:' + 5000);
