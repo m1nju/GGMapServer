@@ -7,13 +7,13 @@ WORKDIR /app
 ADD . /app
 
 # 가능한 package.json 과 package-lock.json을 모두 복사하기 위해서 와일드 카드 사용
-COPY package*.json /app
-COPY deployment.yaml /app
+COPY package*.json /app/
+COPY deployment.yaml /app/
 
 RUN npm install
 
 # 앱 소스코드 추가
-COPY main.js /app
+COPY main.js /app/
 
 ENV NODE_ENV="production"
 ENV DB_HOST="34.64.226.59"
