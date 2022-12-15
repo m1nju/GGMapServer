@@ -8,6 +8,7 @@ ADD . /app
 
 # 가능한 package.json 과 package-lock.json을 모두 복사하기 위해서 와일드 카드 사용
 COPY package*.json /app/
+COPY deployment.yaml /app/
 
 RUN npm install
 
