@@ -22,6 +22,8 @@ ENV DB_PW="ggmap"
 ENV DB_NAME="ggmap_db"
 ENV COOKIE_SECRET="ggmap"
 
+ENV PORT 5000
+
 
 EXPOSE 5000
 
