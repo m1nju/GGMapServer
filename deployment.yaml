@@ -10,7 +10,7 @@ spec:
     type: Recreate
   selector:
     matchLabels:
-      app: hello
+      app: ggmap
   template:
     metadata:
       labels:
