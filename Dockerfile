@@ -19,7 +19,6 @@ ENV NODE_ENV="production"
 ENV DB_HOST="34.64.226.59"
 ENV DB_USER="ggmap"
 ENV DB_PW="ggmap"
-ENV DB_PORT=3306
 ENV DB_NAME="ggmap_db"
 ENV COOKIE_SECRET="ggmap"
 
