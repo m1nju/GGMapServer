@@ -1,5 +1,4 @@
-const port = 80,
-    express = require("express"),
+const express = require("express"),
     app = express(),
     cookieParser = require("cookie-parser"),
     session = require("express-session"),
@@ -9,7 +8,8 @@ const port = 80,
     usersController = require("./controllers/usersController"),
     errorController = require("./controllers/errorController");
 
-app.set("port", process.env.PORT || 80);
+const PORT = process.env.PORT || 80;
+
 app.use("/public", express.static("public"));
 app.use(cookieParser("secret"));
 app.use(session({
@@ -57,5 +57,5 @@ app.post("/users/create", usersController.create, usersController.redirectView);
 app.use(errorController.pageNotFoundError);
 app.use(errorController.internalServerError);
 
-app.listen(5000);
-console.log('Running on http://localhost:' + 5000);
+app.listen(PORT);
+console.log('Running on http://localhost:' + PORT);
