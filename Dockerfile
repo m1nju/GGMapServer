@@ -11,6 +11,7 @@ COPY package*.json /app/
 COPY deployment.yaml /app/
 
 RUN npm install
+RUN npm cache clean
 
 # 앱 소스코드 추가
 COPY main.js /app/
