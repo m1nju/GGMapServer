@@ -17,6 +17,9 @@ spec:
       containers:
       - name: ggmap
         image: sarah1153/ggmap:latest
+        ports:
+        - containerPort: 5000
+          name: ggmap
         
 ---
 apiVersion: v1
