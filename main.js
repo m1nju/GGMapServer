@@ -1,5 +1,4 @@
-const port = 80,
-    express = require("express"),
+const express = require("express"),
     app = express(),
     cookieParser = require("cookie-parser"),
     session = require("express-session"),
@@ -9,8 +8,8 @@ const port = 80,
     usersController = require("./controllers/usersController"),
     errorController = require("./controllers/errorController"),
     homeController = require("./controllers/homeController");
-
-app.set("port", process.env.PORT || 80);
+    
+const PORT = process.env.PORT || 80;
 app.set("view engine", "ejs");
 
 app.use("/public", express.static("public"));
@@ -60,6 +59,5 @@ app.post("/users/create", usersController.create, usersController.redirectView);
 app.use(errorController.pageNotFoundError);
 app.use(errorController.internalServerError);
 
-app.listen(app.get("port"), () => {
-    console.log(`Server running at http://localhost:${app.get("port")}`);
-});
+app.listen(PORT);
+console.log('Running on http://localhost:' + PORT);
