@@ -1,27 +1,27 @@
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: ggmap
-  labels:
-    app: ggmap
-spec:
-  replicas: 3
-  selector:
-    matchLabels:
-      app: ggmap
-  template:
-    metadata:
-      labels:
-        app: ggmap
-    spec:
-      containers:
-      - name: ggmap
-        image: sarah1153/ggmap:latest
-        ports:
-        - containerPort: 5000
-          name: ggmap
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: ggmap
+#   labels:
+#     app: ggmap
+# spec:
+#   replicas: 3
+#   selector:
+#     matchLabels:
+#       app: ggmap
+#   template:
+#     metadata:
+#       labels:
+#         app: ggmap
+#     spec:
+#       containers:
+#       - name: ggmap
+#         image: sarah1153/ggmap:latest
+#         ports:
+#         - containerPort: 5000
+#           name: ggmap
         
----
+# ---
 apiVersion: v1
 kind: Service
 metadata:
