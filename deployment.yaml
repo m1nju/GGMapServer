@@ -18,4 +18,19 @@ spec:
       - name: ggmap
         image: sarah1153/ggmap:latest
         
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ggmap
+  labels:
+    app: ggmap
+spec:
+#   ports:
+#   - port: 80
+#     targetPort: 5000
+  selector:
+    app: hello
+    tier: hello
+  type: LoadBalancer        
         
