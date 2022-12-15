@@ -23,7 +23,7 @@ ENV DB_NAME="ggmap_db"
 ENV COOKIE_SECRET="ggmap"
 
 
-EXPOSE 3306
+EXPOSE 5000
 
 # Start the application
 CMD ["npm", "start"]
